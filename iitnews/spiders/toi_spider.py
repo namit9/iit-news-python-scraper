@@ -9,8 +9,8 @@ class ToiSpider(scrapy.Spider):
     "http://timesofindia.indiatimes.com/topic/IIT-Bombay"
   ]
   def parse(self, response):
-    filename = "toi_" + response.url.split("/")[-1]
-    news_list = response.xpath('//div[@class="topicsnews-box clearfix"]')
+    news_anytime = response.xpath('//div[@id="tab-news-any"]')
+    news_list = news_anytime.xpath('.//div[@class="topicsnews-box clearfix"]')
     for news in news_list:
       news_headline = news.xpath('.//strong/text()').extract()
       news_synopsis = news.xpath('.//span[@class="topicnews-synopsis"]/text()').extract()
