@@ -14,4 +14,5 @@ class IitNewsItem(scrapy.Item):
   synopsis = scrapy.Field()
   link = scrapy.Field()
   page_no = scrapy.Field()
+  college = scrapy.Field()
   pass

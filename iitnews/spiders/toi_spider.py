@@ -7,11 +7,14 @@ class ToiSpider(scrapy.Spider):
   allowed_domains = ["timesofindia.indiatimes.com"]
   
   def start_requests(self):
-    for i in range(1,10):
-      yield self.make_requests_from_url("http://timesofindia.indiatimes.com/topic/IIT-Bombay/%s/" % i)
+    iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU"]
+    for iit in iit_list:
+      for i in range(1,10):
+        yield self.make_requests_from_url("http://timesofindia.indiatimes.com/topic/%s/%s/" % (iit,i) )
   
   def parse(self, response):
     news_page_no = int(response.url.split("/")[5])
+    news_college = response.url.split("/")[4]
     news_latest = response.xpath('//div[@id="tab-news-any"]')
     news_list = news_latest.xpath('.//div[@class="topicsnews-box clearfix"]')
     for news in news_list:
@@ -23,4 +26,5 @@ class ToiSpider(scrapy.Spider):
       item['synopsis'] = news_synopsis[0]
       item['link'] = news_link[0]
       item['page_no'] = news_page_no
+      item['college'] = news_college
       yield item
