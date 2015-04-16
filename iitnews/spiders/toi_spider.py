@@ -7,7 +7,7 @@ class ToiSpider(scrapy.Spider):
   allowed_domains = ["timesofindia.indiatimes.com"]
   
   def start_requests(self):
-    iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU"]
+    iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU", "IIT-Delhi"]
     for iit in iit_list:
       for i in range(1,10):
         yield self.make_requests_from_url("http://timesofindia.indiatimes.com/topic/%s/%s/" % (iit,i) )

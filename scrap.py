@@ -1,7 +1,7 @@
 import subprocess
 import json
 
-iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU"]
+iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU", "IIT-Delhi"]
 
 if subprocess.call(["rm", "toi.json"]) == 0:
   if subprocess.call("scrapy crawl toi -o toi.json", shell = True) == 0:
