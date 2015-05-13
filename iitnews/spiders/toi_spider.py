@@ -1,13 +1,12 @@
 import scrapy
 
 from iitnews.items import IitNewsItem
+from iitnews.constants import iit_list
 
 class ToiSpider(scrapy.Spider):
   name ="toi"
   allowed_domains = ["timesofindia.indiatimes.com"]
-  
   def start_requests(self):
-    iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU", "IIT-Delhi"]
     for iit in iit_list:
       for i in range(1,10):
         yield self.make_requests_from_url("http://timesofindia.indiatimes.com/topic/%s/%s/" % (iit,i) )
@@ -23,7 +22,10 @@ class ToiSpider(scrapy.Spider):
       news_link = news.xpath('.//a/@href').extract()
       item = IitNewsItem()
       item['headline'] = news_headline[0]
-      item['synopsis'] = news_synopsis[0]
+      if not news_synopsis:
+        item['synopsis'] = "No synopsis"
+      else:
+        item['synopsis'] = news_synopsis[0]
       item['link'] = news_link[0]
       item['page_no'] = news_page_no
       item['college'] = news_college

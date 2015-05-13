@@ -2,7 +2,7 @@ import subprocess
 import json
 import os.path
 
-iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IT-BHU", "IIT-Delhi"]
+from iitnews.constants import iit_list
 
 if os.path.isfile("toi.json") == True:
   subprocess.call(["rm", "toi.json"])
