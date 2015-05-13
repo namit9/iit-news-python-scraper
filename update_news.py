@@ -1,6 +1,7 @@
 import subprocess
 import json
 import os.path
+import collections
 
 from iitnews.constants import iit_list
 
@@ -15,5 +16,6 @@ if subprocess.call("scrapy crawl toi -o toi.json", shell = True) == 0:
   for iit in iit_list:
     news_segregated[iit] = [news for news in news_list if news['college'] == iit]
     news_ordered[iit] = sorted(news_segregated[iit], key=lambda news:news['page_no'])
+    news_ordered = collections.OrderedDict(sorted(news_ordered.items()))
   with open("toi_organised.json", "w") as f:
     json.dump(news_ordered, f)
