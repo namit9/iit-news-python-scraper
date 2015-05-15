@@ -15,7 +15,11 @@ if subprocess.call("scrapy crawl toi -o toi.json", shell = True) == 0:
   news_ordered = {}
   for iit in iit_list:
     news_segregated[iit] = [news for news in news_list if news['college'] == iit]
+    if iit == 'IT-BHU':
+      news_segregated['IIT-BHU'] += news_segregated['IT-BHU']
+      news_ordered['IIT-BHU'] = sorted(news_segregated['IIT-BHU'], key=lambda news:news['page_no'])
+      continue
     news_ordered[iit] = sorted(news_segregated[iit], key=lambda news:news['page_no'])
-    news_ordered = collections.OrderedDict(sorted(news_ordered.items()))
+  news_ordered = collections.OrderedDict(sorted(news_ordered.items()))
   with open("toi_organised.json", "w") as f:
     json.dump(news_ordered, f)
