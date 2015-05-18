@@ -6,6 +6,7 @@ A Scrapy-based crawler that crawls the Times of India website and returns the ne
 
 ## Dependencies
 - Scrapy
+- Django(for demo project)
 
 ## Installation
 ```sh
@@ -13,10 +14,11 @@ $ pip install scrapy
 $ git clone git@github.com:namit9/iit-news-python-scraper.git
 $ cd iit-news-python-scraper
 $ python update_news.py
+$ ./manage.py runserver(to see result in the browser)
 ```
 
 ## Output
-The results are stored in toi_organised.json.
+The result can be seen at localhost:8000(after runserver) or in toi_organised.json.
 Each news item looks like this:
 ```sh
  {
