@@ -26,7 +26,7 @@ class ToiSpider(scrapy.Spider):
         item['synopsis'] = "No synopsis"
       else:
         item['synopsis'] = news_synopsis[0]
-      item['link'] = news_link[0]
+      item['link'] = 'http://timesofindia.indiatimes.com' + news_link[0]
       item['page_no'] = news_page_no
       item['college'] = news_college
       yield item
