@@ -18,7 +18,11 @@ $ ./manage.py runserver(to see result in the browser)
 ```
 
 ## Output
-The result can be seen at localhost:8000(after runserver) or in toi_organised.json.
+The result for all IITs can be seen at localhost:8000/news/(after runserver).
+
+### API
+- localhost:8000/api/?items=:items&iits=IIT-Bombay&iits=IIT-Delhi&...
+  - items=number of news items for each IIT
 Each news item looks like this:
 ```sh
  {
