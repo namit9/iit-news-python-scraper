@@ -23,6 +23,7 @@ The result for all IITs can be seen at localhost:8000/news/(after runserver).
 ### API
 - localhost:8000/api/?items=:items&iits=IIT-Bombay&iits=IIT-Delhi&...
   - items=number of news items for each IIT
+
 Each news item looks like this:
 ```sh
  {
