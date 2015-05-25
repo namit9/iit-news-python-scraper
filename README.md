@@ -22,6 +22,7 @@ $ ./manage.py runserver(to see result in the browser)
 - localhost:8000/api/?items=:items&iit=IIT-Bombay&iit=IIT-Delhi&...
   - items=number of news items for each IIT
   - To get news for all IITs, remove "iit" parameter from URL 
+
 Each news item looks like this:
 ```sh
  {
