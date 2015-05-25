@@ -1,0 +1,1 @@
+iit_list = ["IIT-Bombay", "IIT-Roorkee", "IIT-Guwahati", "IIT-Kanpur", "IIT-Kharagpur", "IIT-Madras", "IIT-BHU", "IIT-Delhi", "IIT-Bhubaneswar", "IIT-Gandhinagar", "IIT-Hyderabad", "IIT-Indore", "IIT-Jodhpur", "IIT-Patna", "IIT-Ropar"]
