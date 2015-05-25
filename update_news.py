@@ -23,3 +23,4 @@ if subprocess.call("scrapy crawl toi -o toi.json", shell = True) == 0:
   news_ordered = collections.OrderedDict(sorted(news_ordered.items()))
   with open("toi_organised.json", "w") as f:
     json.dump(news_ordered, f)
+  subprocess.call(["cp", "toi_organised.json", "./demo/static/toi_organised.json"])
